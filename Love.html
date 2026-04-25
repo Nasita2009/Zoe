@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zoe 💖</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Feliz mes mi niña 🥳💖</h1>
+
+<div class="contenedor">
+
+    <div class="carta-wrapper" onclick="abrirCarta()">
+        <img src="carta.jpg" class="carta">
+        <div class="tap">Tócame 💖</div>
+    </div>
+
+</div>
+
+<div class="hoja" id="hoja" ontouchstart="startTouch(event)" ontouchmove="moveTouch(event)">
+
+    <div class="fondo-cielo"></div>
+
+    <div class="corazones-hoja">
+        <span>💖</span><span>💖</span><span>💖</span><span>💖</span><span>💖</span>
+        <span>💖</span><span>💖</span><span>💖</span><span>💖</span><span>💖</span>
+        <span>💖</span><span>💖</span>
+    </div>
+
+    <div class="hoja-contenido">
+
+        <div class="titulo-hoja">
+            💖 Un mes contigo 💖
+        </div>
+
+        <div class="contenido">
+            <p>
+            Hoy es un dia especial, celebramos un mes siendo novios y quiero agradecerte por estar conmigo estos dias, por aguantarme mis berrinches, mis celos, por siempre estar para mi, no dejarme solo, entenderme y explicarme cuando sobre pienso, eres la meor novia, la mas linda, bonita, bella, wapa, preciosa, hermosa, interesante, divertida, maravillosa, asombrosa, unica, especial y perfecta de todo el mundoooo, me encantas demasiado, me gustas un monton, estas en mi mente 24/7 no paro de pensar en ti, ojala nunca te vayas de mi vida, estemos hasta q nuestras almas desaparezcan, pq te juro q mi amor por ti jamas acabara, mi amor por ti aumenta cada segundo mas y nada ni nadie hara q eso cambie, siempre estare para ti ayudandote, apoyandote, entendiendote, escuchandote y cuidandote, se q nuestro amor sera bonito y durara no solo un mes ni 2 si no años, viviremos juntos, nos casaremos y tendremos una niña hermosa como tu.  
+
+            Y también quiero que sepas que cada momento contigo es único, que cada risa, cada mirada y cada palabra tuya se quedan guardadas en mi corazón como los recuerdos más bonitos de mi vida. 💖
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+let startY = 0;
+
+function abrirCarta(){
+    document.getElementById("hoja").classList.add("mostrar");
+
+    if (navigator.vibrate) {
+        navigator.vibrate(100);
+    }
+}
+
+function startTouch(e){
+    startY = e.touches[0].clientY;
+}
+
+function moveTouch(e){
+    let endY = e.touches[0].clientY;
+
+    if (startY - endY < -80) {
+        document.getElementById("hoja").classList.remove("mostrar");
+    }
+}
+</script>
+
+</body>
+</html>
