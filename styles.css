@@ -1,19 +1,13 @@
-/* 🔥 FIX GLOBAL */
 * {
     box-sizing: border-box;
 }
 
-/* BODY (ARREGLADO) */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-
-    /* fondo estable sin glitches */
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-
     text-align: center;
     overflow-x: hidden;
-
     min-height: 100vh;
 }
 
@@ -24,7 +18,7 @@ h1 {
     font-size: 22px;
 }
 
-/* contenedor carta */
+/* carta */
 .contenedor {
     margin-top: 60px;
 }
@@ -52,44 +46,35 @@ h1 {
     display: none;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    background: transparent;
 }
 
 .hoja.mostrar {
     display: flex;
 }
 
-/* fondo dentro de hoja */
+/* fondo */
 .fondo-cielo {
     position: absolute;
     inset: 0;
     background: url("cielo.png") center/cover no-repeat;
-    z-index: 0;
+    filter: brightness(0.7);
 }
 
 /* corazones */
-.corazones-hoja {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
 .corazones-hoja span {
     position: absolute;
-    font-size: 22px;
-    opacity: 0;
-    animation: subir 6s infinite;
+    bottom: -10%;
+    animation: subir 6s infinite linear;
+    opacity: 0.8;
 }
 
 /* contenedor */
 .hoja-contenido {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    padding: 10px;
+    animation: aparecer 0.6s ease;
 }
 
 /* título */
@@ -100,19 +85,22 @@ h1 {
     text-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
 
-/* texto */
+/* carta abierta */
 .contenido {
-    background: rgba(255,255,255,0.92);
-    width: 88%;
-    max-width: 700px;
-    max-height: 80vh;
+    background: rgba(255,255,255,0.95);
+    width: 92%;
+    max-width: 500px;
+    max-height: 75vh;
+    margin: auto;
     overflow-y: auto;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 20px;
 
     font-size: 15px;
     line-height: 1.6;
     text-align: justify;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* animaciones */
@@ -122,15 +110,35 @@ h1 {
 }
 
 @keyframes subir {
-    0% {bottom: -10%; opacity: 0;}
-    30% {opacity: 1;}
-    100% {bottom: 110%; opacity: 0;}
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
 }
 
-/* 📱 móvil */
+@keyframes aparecer {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* móvil */
 @media (max-width: 768px) {
+
     .carta {
-        width: 140px;
+        width: 130px;
     }
 
     h1 {
@@ -139,7 +147,8 @@ h1 {
 
     .contenido {
         font-size: 14px;
-        max-height: 75vh;
+        padding: 18px;
+        border-radius: 18px;
     }
 
     .titulo-hoja {
