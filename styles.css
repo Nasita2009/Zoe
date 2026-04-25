@@ -30,7 +30,7 @@ h1 {
 }
 
 .carta {
-    width: 500px;
+    width: min(500px, 85vw);
 }
 
 .tap {
