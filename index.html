@@ -2,9 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Zoe 💖</title>
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,12 +12,10 @@
 <h1>Feliz mes mi niña 🥳💖</h1>
 
 <div class="contenedor">
-
     <div class="carta-wrapper" onclick="abrirCarta()">
         <img src="carta.jpg" class="carta" alt="carta">
         <div class="tap">Tócame 💖</div>
     </div>
-
 </div>
 
 <!-- HOJA -->
@@ -27,11 +23,8 @@
 
     <div class="fondo-cielo"></div>
 
-    <div class="corazones-hoja">
-        <span>💖</span><span>💖</span><span>💖</span><span>💖</span><span>💖</span>
-        <span>💖</span><span>💖</span><span>💖</span><span>💖</span><span>💖</span>
-        <span>💖</span><span>💖</span>
-    </div>
+    <!-- corazones -->
+    <div class="corazones-hoja" id="corazones"></div>
 
     <div class="hoja-contenido">
 
@@ -41,7 +34,8 @@
 
         <div class="contenido">
             <p>
-            Hoy es un dia especial, celebramos un mes siendo novios y quiero agradecerte por estar conmigo estos dias, por aguantarme mis berrinches, mis celos, por siempre estar para mi, no dejarme solo, entenderme y explicarme cuando sobre pienso, eres la meor novia, la mas linda, bonita, bella, wapa, preciosa, hermosa, interesante, divertida, maravillosa, asombrosa, unica, especial y perfecta de todo el mundoooo, me encantas demasiado, me gustas un monton, estas en mi mente 24/7 no paro de pensar en ti, ojala nunca te vayas de mi vida, estemos hasta q nuestras almas desaparezcan, pq te juro q mi amor por ti jamas acabara, mi amor por ti aumenta cada segundo mas y nada ni nadie hara q eso cambie, siempre estare para ti ayudandote, apoyandote, entendiendote, escuchandote y cuidandote, se q nuestro amor sera bonito y durara no solo un mes ni 2 si no años, viviremos juntos, nos casaremos y tendremos una niña hermosa como tu. 💖
+            Hoy es un día especial, celebramos un mes siendo novios...
+            💖
             </p>
         </div>
 
@@ -52,6 +46,24 @@
 <script>
 function abrirCarta(){
     document.getElementById("hoja").classList.add("mostrar");
+
+    if (navigator.vibrate) {
+        navigator.vibrate(50);
+    }
+}
+
+/* generar corazones */
+const contenedor = document.getElementById("corazones");
+
+for (let i = 0; i < 20; i++) {
+    let span = document.createElement("span");
+    span.innerHTML = "💖";
+
+    span.style.left = Math.random() * 100 + "%";
+    span.style.animationDelay = Math.random() * 5 + "s";
+    span.style.fontSize = (16 + Math.random() * 20) + "px";
+
+    contenedor.appendChild(span);
 }
 </script>
 
